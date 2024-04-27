@@ -50,15 +50,5 @@ pipeline {
         sh 'docker logout'
       }
     }
-    post {
-      always {
-        emailext(
-          to: 'jihed.mrouki@gmail.com',
-          subject: "Pipeline ${currentBuild.fullDisplayName} completed",
-          body: "The pipeline ended with result: ${currentBuild.result}",
-          mimeType: 'text/plain'
-        )
-      }
-    }
   }
 }
