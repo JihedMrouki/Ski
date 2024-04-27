@@ -18,7 +18,7 @@ pipeline {
         }
         stage('init SonarQube') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=admin' // admin admin or admin sonar
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar' // admin admin or admin sonar
             }
         }
         stage("SonarQube Quality Gate Check") {
