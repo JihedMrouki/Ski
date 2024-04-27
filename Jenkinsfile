@@ -18,7 +18,7 @@ pipeline {
         }
         stage('SonarQube') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar' // admin admin or admin sonar
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
             }
         }
         stage('Nexus Deployment') {
@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Building Image') {
             steps {
-                sh 'docker build -t JihedMrouki/Ski .'
+                sh 'docker build -t JihedMrouki/ski .'
             }
         }
         stage('Pushing Image') {
