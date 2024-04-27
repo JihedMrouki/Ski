@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('docker-hub')
+    }
     stages {
         stage('Maven Compile') {
             steps {
@@ -33,9 +36,11 @@ pipeline {
         }
         stage('Pushing Image') {
             steps {
-                sh 'echo "logging to docker" | docker login -u JihedMrouki --password-stdin'
+                
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 sh 'docker tag JihedMrouki/ski JihedMrouki/ski:latest'
                 sh 'docker push JihedMrouki/ski:latest'
+
             }
         }
     }
