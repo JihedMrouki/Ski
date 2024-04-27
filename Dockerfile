@@ -1,6 +1,6 @@
 FROM eclipse-temurin:17-jdk-alpine
  
-ARG JAR_FILE=./target/gestion-station-ski-6.0.jar
+ARG JAR_FILE=./target/gestion-station-ski-1.0.jar
 #ARG YAML_FILE=./src/main/resources/application.properties
 WORKDIR /home/esprit/deploy
 COPY ${JAR_FILE} api.jar
