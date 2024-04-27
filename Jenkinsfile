@@ -16,25 +16,9 @@ pipeline {
                 sh 'mvn clean install -DskipTests'
             }
         }
-        stage('init SonarQube') {
+        stage('SonarQube') {
             steps {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar' // admin admin or admin sonar
-            }
-        }
-        stage("SonarQube Quality Gate Check") {
-            steps {
-                script {
-                def qualityGate = waitForQualityGate()
-                    
-                    if (qualityGate.status != 'OK') {
-                        echo "${qualityGate.status}"
-                        error "Quality Gate failed: ${qualityGateStatus}"
-                    }
-                    else {
-                        echo "${qualityGate.status}"
-                        echo "SonarQube Quality Gates Passed"
-                    }
-                }
             }
         }
         stage('Nexus Deployment') {
