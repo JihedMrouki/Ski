@@ -31,7 +31,7 @@ pipeline {
     }
     stage('Building Image') {
       steps {
-        sh 'docker build -t JihedMrouki/ski .'
+        sh 'docker build -t jihedmrouki/ski .'
       }
     }
     stage('Pushing Image') {
