@@ -47,7 +47,7 @@ pipeline {
         }
     stage('Cleanup Dockerhub logout') {
       steps {
-        sh 'docker rmi $DOCKERHUB_CREDENTIALS_USR/ski:latest'
+        sh 'docker rmi -f $DOCKERHUB_CREDENTIALS_USR/ski:latest'
         sh 'docker logout'
       }
     }
