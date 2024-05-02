@@ -40,8 +40,8 @@ pipeline {
         //sh 'echo "logging to docker" | docker login -u JihedMrouki --password-stdin' // to be removed or replaced by token login
         sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
         //sh 'docker tag $DOCKERHUB_CREDENTIALS_USR/ski jihedmrouki/ski:latest'
-        //sh 'docker push $DOCKERHUB_CREDENTIALS_USR/ski:latest'
-        sh 'docker push $DOCKERHUB_CREDENTIALS_USR/ski:$BUILD_ID'
+        sh 'docker push $DOCKERHUB_CREDENTIALS_USR/ski:latest'
+        //sh 'docker push $DOCKERHUB_CREDENTIALS_USR/ski:$BUILD_ID'
         //sh 'docker tag JihedMrouki/ski JihedMrouki/ski:latest'
         //sh 'docker push JihedMrouki/ski:latest'
 
