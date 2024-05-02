@@ -49,7 +49,7 @@ pipeline {
     }
     stage('Cleanup') {
       steps {
-        sh 'docker rmi $DOCKERHUB_CREDENTIALS_USR/ski:$BUILD_ID'
+        sh 'docker rmi $DOCKERHUB_CREDENTIALS_USR/ski:latest'
         sh 'docker logout'
       }
     }
