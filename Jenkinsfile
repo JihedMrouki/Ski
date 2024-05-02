@@ -31,8 +31,8 @@ pipeline {
     }
     stage('Building Image') {
       steps {
-        //sh 'docker build -t jihedmrouki/ski .'
-        sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/ski:$BUILD_ID'
+        sh 'docker build -t jihedmrouki/ski .'
+        //sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/ski:$BUILD_ID'
       }
     }
     stage('Pushing Image') {
