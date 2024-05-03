@@ -9,7 +9,7 @@ scrape_configs:
       - targets: ['172.19.0.5:8089']
   - job_name: 'jenkins'
     metrics_path: '/prometheus/'
-    scheme: https
+    scheme: http
     static_configs:
       - targets: ['172.17.0.1:8080']
     tls_config:
