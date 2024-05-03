@@ -6,11 +6,9 @@ scrape_configs:
   - job_name: 'spring-actuator'
     metrics_path: '/api/actuator/prometheus'
     static_configs:
-      - targets: ['localhost:9090']
-      # - targets: ['localhost:8089']
+      - targets: ['172.19.0.5:8089']
   - job_name: 'jenkins'
     metrics_path: '/prometheus/'
     scheme: https
     static_configs:
       - targets: ['172.17.0.1:8080']
-      # 172.17.0.1:8080
